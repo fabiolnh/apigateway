@@ -1,2 +1,2 @@
-# apigateway
-API Gateway
+# API Gateway (Currently Studying)
+- 
