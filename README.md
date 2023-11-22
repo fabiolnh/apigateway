@@ -51,4 +51,4 @@
     - Ready for Kubernetes
     - There are plugins for it
     - Deployment models: you can work with declarative YML/Json or with Database
-    
+    - Konga: It is a visual interface to manage everything (show metrics, control users, etc.)
