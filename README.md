@@ -22,13 +22,23 @@
      - Usually it stays out of your infrastructure.
   * Micro/Microservice Gateway:
      - Route the traffic to the micro services.
-     - Does not offer support for APIs life cycle and the team has to create a separated process to do it (like a pipeline).
-     - Usually they do not have external dependency, so the k8s manages the state of the application.
-     - Purpose: expose, observability and monitoring.
+     - Does not offer support for APIs life cycle and the team has to create a separate process to do it (like a pipeline).
+     - Usually they do not have external dependency, so the k8s manage the state of the application.
+     - Purpose: exposure, observability and monitoring.
      - Maintain: Declarative configuration for updates, done by the services teams
-     - Suport for envirenments. Support for canary deployment (debugging).
-     - Envirenment: One API Gateway Instance for each envirenment.
+     - Support for environments. Support for canary deployment (debugging).
+     - Environment: One API Gateway Instance for each environment.
      - Management: through pipelines.
 
 - OBS: Inside your network, when you have a lot of microservices, avoid the "death star", and put an API Gateway to each "context". This way things get more organized.
-- 
+- OBS: Always automate your API Gateway configuration! Through pipelines, as an example.
+
+- Advantages:
+   * Logging, security, unique entry point, metrics
+ 
+- Disadvantages:
+   * complexity, needs extra care (availability), needs to maintain/update (to avoid vulnerability), unique point of failure
+
+- When do we choose each API Gateway?
+  * When we have a team focuses in manage the API Gateway: Enterprise Gateway
+  * When each team has its own capacity to manage their endpoints in API Gateway: Micro/Microservice Gateway
