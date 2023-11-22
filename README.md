@@ -42,3 +42,13 @@
 - When do we choose each API Gateway?
   * When we have a team focuses in manage the API Gateway: Enterprise Gateway
   * When each team has its own capacity to manage their endpoints in API Gateway: Micro/Microservice Gateway
+
+- Example:
+  * Kong API Gateway:
+    - A Open Source API Gateway, for free. (there is an enterprise version, too, that is paid)
+    - Micro API Gateway (it does not manage the life cycle of your API)
+    - Flexible Deployment (can be internally or in a edge)
+    - Ready for Kubernetes
+    - There are plugins for it
+    - Deployment models: you can work with declarative YML/Json or with Database
+    
