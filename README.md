@@ -52,3 +52,15 @@
     - There are plugins for it
     - Deployment models: you can work with declarative YML/Json or with Database
     - Konga: It is a visual interface to manage everything (show metrics, control users, etc.)
+      * OBS:
+        - Downstream: User or Service that is accessing the API Gateway
+        - Proxy: Kong
+        - Upstream: Backend (Services behind API Gateway)
+      * Create Service, than create the route (ex: api.test.com -> api/test)
+      * Plugins: Can be configured in Routes, Consumers or globally. Exemples:
+        - Plugin Correlation ID: Good to have. It puts an ID to the Request and to the Response (header: Request-ID), passing this value to the services. ( https://docs.konghq.com/hub/kong-inc/correlation-id/ )
+        - Plugin Rate Limiting: if you want to limit X requests per seconds/minutes. You can choose the limit by consumer, credential, ip, service, header or path). There are a lot of configurations, one example is to use redis to better consistency.
+        - Plugin Response Transformer or Request Transformer: You can insert or remove json elements (body), headers, etc.  (Good to know: do not transform heavy operations to not overload the API Gateway)
+        - Plugin Basic Auth: When you send in the header the authorization value in Base64 (Authorization: Basic ...). It is the initial concept of Authentication. The beginner level. Low Security. But it works if you do not have anything else. (if some attacker has the header value, he will know the password). Currently we have to use OAuth or OpenID Connect
+           * You can work with Authentication in the Kong API Gateway (but remember, in some cases, having the base of users in the API Gateway is not good because you create a "lock-in"). It is good to have an Identity Provider in the Company to have a central controller of the users.
+        - Plugin Key Authentication: For services authentication (not users). Those consumers (services) that are accessing the API Gateway. It is only a value on the header. (Ex: apiKey: ...). This authentication is not recommended, either. It is better to use OAuth or OpenID Connect
