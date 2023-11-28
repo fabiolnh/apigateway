@@ -64,3 +64,12 @@
         - Plugin Basic Auth: When you send in the header the authorization value in Base64 (Authorization: Basic ...). It is the initial concept of Authentication. The beginner level. Low Security. But it works if you do not have anything else. (if some attacker has the header value, he will know the password). Currently we have to use OAuth or OpenID Connect
            * You can work with Authentication in the Kong API Gateway (but remember, in some cases, having the base of users in the API Gateway is not good because you create a "lock-in"). It is good to have an Identity Provider in the Company to have a central controller of the users.
         - Plugin Key Authentication: For services authentication (not users). Those consumers (services) that are accessing the API Gateway. It is only a value on the header. (Ex: apiKey: ...). This authentication is not recommended, either. It is better to use OAuth or OpenID Connect
+   
+Infrastructure Types / Deployment Models:
+  * Location:
+    1) Edge: External. Entry point for consumers.
+    2) Between Contexts (to minimize the Death Star).
+  * Data:
+    1) DB-Less: Declarative YAML/JSON with the configuration (remember to replicate the file to all nodes). You have more availability here.
+    2) With a Database: More consistency but less availability. (If the database goes down, a problem may occur.) However, there are mechanisms in Kong that keep some configurations cached for performance.
+    * Note: Some plugins work only in the Database Model (Ex: OAuth2 Authentication). Therefore, it is important to verify at the beginning the Data Model you will choose.
