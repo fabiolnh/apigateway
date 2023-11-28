@@ -73,3 +73,6 @@ Infrastructure Types / Deployment Models:
     1) DB-Less: Declarative YAML/JSON with the configuration (remember to replicate the file to all nodes). You have more availability here.
     2) With a Database: More consistency but less availability. (If the database goes down, a problem may occur.) However, there are mechanisms in Kong that keep some configurations cached for performance.
     * Note: Some plugins work only in the Database Model (Ex: OAuth2 Authentication). Therefore, it is important to verify at the beginning the Data Model you will choose.
+  * Teams:
+    1) A Team that is specific for the management of the whole API Gateway for all entries in squads. The Specialized API Gateway Team is responsable.
+    2) A Squad that manages your own apps Api Gateway. The Squad is the responsable. Important to have a Pipeline (Automation)
