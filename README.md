@@ -65,7 +65,7 @@
            * You can work with Authentication in the Kong API Gateway (but remember, in some cases, having the base of users in the API Gateway is not good because you create a "lock-in"). It is good to have an Identity Provider in the Company to have a central controller of the users.
         - Plugin Key Authentication: For services authentication (not users). Those consumers (services) that are accessing the API Gateway. It is only a value on the header. (Ex: apiKey: ...). This authentication is not recommended, either. It is better to use OAuth or OpenID Connect
    
-Infrastructure Types / Deployment Models:
+- Infrastructure Types / Deployment Models:
   * Location:
     1) Edge: External. Entry point for consumers.
     2) Between Contexts (to minimize the Death Star).
@@ -74,5 +74,10 @@ Infrastructure Types / Deployment Models:
     2) With a Database: More consistency but less availability. (If the database goes down, a problem may occur.) However, there are mechanisms in Kong that keep some configurations cached for performance.
     * Note: Some plugins work only in the Database Model (Ex: OAuth2 Authentication). Therefore, it is important to verify at the beginning the Data Model you will choose.
   * Teams:
-    1) A Team that is specific for the management of the whole API Gateway for all entries in squads. The Specialized API Gateway Team is responsable.
-    2) A Squad that manages your own apps Api Gateway. The Squad is the responsable. Important to have a Pipeline (Automation)
+    1) A Team that is specific for the management of the whole API Gateway for all entries in squads. The Specialized API Gateway Team is responsible.
+    2) A Squad that manages your own apps Api Gateway. The Squad is responsible. Important to have a Pipeline (Automation)
+
+- Observability:
+ - Metrics: Install the Prometheus Plugin (Globally. However, you can put in another granularity). In Grafana there is an official dashboard for it. You can see: Request Rate (Requests per second, by route, by service and by status code), Latencies, Bandwidth, Caching, Upstream and Nginx.
+ - Logging: Install The TCP Logging Plugin (in Service). This way you send the logs to FluentBit (elastic stack). So, in Kibana you can see all the logs, such as: Index, latency time, Headers, Port, URL, IP origin, etc. This way you can do a lot of things, like: "How many times we received the header X", etc. OBS: There is no Body Logging. (could cause a performance issue, or a security issue, like sensible information)
+ - 
