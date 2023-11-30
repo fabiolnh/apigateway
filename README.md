@@ -78,6 +78,6 @@
     2) A Squad that manages your own apps Api Gateway. The Squad is responsible. Important to have a Pipeline (Automation)
 
 - Observability:
- - Metrics: Install the Prometheus Plugin (Globally. However, you can put in another granularity). In Grafana there is an official dashboard for it. You can see: Request Rate (Requests per second, by route, by service and by status code), Latencies, Bandwidth, Caching, Upstream and Nginx.
- - Logging: Install The TCP Logging Plugin (in Service). This way you send the logs to FluentBit (elastic stack). So, in Kibana you can see all the logs, such as: Index, latency time, Headers, Port, URL, IP origin, etc. This way you can do a lot of things, like: "How many times we received the header X", etc. OBS: There is no Body Logging. (could cause a performance issue, or a security issue, like sensible information)
+  - Metrics: Install the Prometheus Plugin (Globally. However, you can put in another granularity). In Grafana there is an official dashboard for it. You can see: Request Rate (Requests per second, by route, by service and by status code), Latencies, Bandwidth, Caching, Upstream and Nginx.
+  - Logging: Install The TCP Logging Plugin (in Service). This way you send the logs to FluentBit (elastic stack). So, in Kibana you can see all the logs, such as: Index, latency time, Headers, Port, URL, IP origin, etc. This way you can do a lot of things, like: "How many times we received the header X", etc. OBS: There is no Body Logging. (could cause a performance issue, or a security issue, like sensible information)
  - 
